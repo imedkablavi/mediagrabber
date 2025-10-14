@@ -1,0 +1,11 @@
+{
+  "name": "MediaGrabber",
+  "short_name": "MediaGrabber",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f141a",
+  "theme_color": "#4f80ff",
+  "icons": [
+    {"src": "/assets/logo.svg", "sizes": "any", "type": "image/svg+xml"}
+  ]
+}

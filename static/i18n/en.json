@@ -1,0 +1,15 @@
+{
+  "title": "Download videos & images from any social link",
+  "subtitle": "YouTube, Instagram, TikTok, X/Twitter, Facebook and more",
+  "downloadBtn": "Grab Media",
+  "hint": "Paste a post/reel/video URL. We’ll fetch real download links.",
+  "about": "About Us",
+  "privacy": "Privacy Policy",
+  "terms": "Terms of Service",
+  "contact": "Contact",
+  "loading": "Loading..."
+  ,"quality": "Quality"
+  ,"mp3Toggle": "Convert to MP3"
+  ,"downloadServer": "Download via server"
+  ,"devTitle": "About the developer"
+}
