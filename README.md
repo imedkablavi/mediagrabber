@@ -1,122 +1,62 @@
-# 🎬 MediaGrabber | ميديا جرايبر
+# Mediagrabber
 
-[![Python](https://img.shields.io/badge/Python-3.12-blue?style=for-the-badge&logo=python)](https://www.python.org/)
-[![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi)](https://fastapi.tiangolo.com/)
-[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
-[![Support](https://img.shields.io/badge/Support-BuyMeACoffee-orange?style=for-the-badge)](https://www.buymeacoffee.com/)
+X/Twitter, Instagram & Facebook. Supports MP3, FFmpeg, SEO & PWA, with multi-language UI: Arabic, English & Turkish.
 
-**MediaGrabber** — Multi‑language Media Downloader & Manager  
-Inspect • Download • Convert • فحص • تحميل • تحويل
+## Features
 
----
+- Repository structure has been documented from the currently tracked files.
 
-## 🌟 Features | المميزات
+## Tech Stack
 
-| Feature / الميزة | Description / الوصف |
-|------------------|----------------------|
-| ⚡ Fast & Reliable | FastAPI + Uvicorn / سريع وموثوق |
-| 📥 Direct Download | `yt-dlp` + FFmpeg merge / تحميل مباشر |
-| 🎵 MP3 Conversion | Optional / تحويل اختياري إلى MP3 |
-| 🔎 Media Inspection | Extract formats & qualities / فحص الصيغ والجودات |
-| 🌍 Multi-language | Arabic (RTL), English, Turkish / تعدد اللغات |
-| 🧭 SEO Optimized | canonical, hreflang, OG, Twitter / تحسين SEO |
-| 🤖 Robots & Sitemap | Served from backend / تقديم عبر الخادم |
-| 🛡️ Cache & Security | Static cache headers, HSTS, custom 404 / أمان وكاش |
+- Python
 
----
+## Project Structure
 
-## 📂 Project Structure | هيكل المشروع
-
-```
+```text
+.env.example
+.gitignore
+README.md
+requirements.txt
 server/
-└─ main.py                  # FastAPI: static, API, SEO routes
 static/
-├─ index.html               # Main frontend
-├─ css/style.css            # Styles & layout
-├─ js/app.js                # Init & language management
-├─ i18n/{ar,en,tr}.json     # UI translations
-├─ assets/logo.svg          # Logo
-├─ pages/{about,privacy,terms,contact}.html
-├─ manifest.json            # PWA manifest
-robots.txt, sitemap.xml     # SEO files
 ```
 
----
-
-## 🚀 Live Demo | العرض الحي
-- Production / الإنتاج: https://mediagrabber.imedkablavi.info/
-- Local / محليًا: http://127.0.0.1:5051/
-
-<!-- يمكنك إضافة GIF أو لقطات شاشة في هذا القسم لاحقًا عند الحاجة -->
-
----
-
-## 🌍 Internationalization | التعدد اللغوي
-- Auto‑detects browser language with RTL support for Arabic.
-- Add/update languages via JSON files in `static/i18n/`.
-
----
-
-## 🛠️ Local Development | التطوير محليًا
+## Installation
 
 ```bash
-python -m venv venv
-# Windows
-.\venv\Scripts\activate
-# Linux/macOS
-source venv/bin/activate
-
-pip install -r requirements.txt
-python -m uvicorn server.main:app --host 127.0.0.1 --port 5051 --workers 4
-# Open http://127.0.0.1:5051/
+python -m pip install -r requirements.txt
 ```
 
----
+## Development
 
-## 🧪 API Overview | نقاط نهاية API
-- `POST /api/inspect` — Inspect media / فحص الرابط وإرجاع الصيغ والجودات
-- `POST /api/download` — Download media / تنزيل الصيغة المحددة (يدعم تحويل MP3)
-- `GET /robots.txt`, `GET /sitemap.xml` — SEO files / تقديم ملفات SEO
-- `GET /health` — Health check / فحص صحة التطبيق
+- Run the project entry point documented in the source files.
 
----
+## Build
 
-## 🔐 YouTube Cookies | ملفات كوكيز يوتيوب (اختياري)
-بعض الروابط تتطلب مصادقة YouTube. صدّر الكوكيز بصيغة Netscape وحدّد المسار في `YTDLP_COOKIEFILE`.
+No build command was detected from tracked files.
 
-```env
-# .env (see .env.example)
-YTDLP_COOKIEFILE=C:\\absolute\\path\\to\\cookies\\youtube.txt
-```
+## Tests
 
-مراجع:
-- https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp
+No test command was detected from tracked files.
 
----
+## Environment Variables
 
-## 🚀 Deployment | النشر
-تشغيل مباشر عبر Uvicorn أو خلف بروكسي (OpenLiteSpeed/aaPanel).
+Use `.env.example` as the starting point when environment variables are required. Keep real secrets out of git.
 
-```bash
-uvicorn server.main:app --host 127.0.0.1 --port 5050 --workers 1
-```
+- `DIAG_DISABLE_SSL`: `your_value_here`
 
-- فعّل HTTPS وإعادة التوجيه من HTTP → HTTPS، ويفضل HTTP/2.
+## Status
 
----
+- README generated from the current repository files.
+- Runtime behavior should be verified in the target environment before production use.
 
-## 🤝 Contributing | المساهمة
-حسّن الواجهة، أضف ترجمات جديدة، أو نقاط نهاية API.
-Fork → Develop → Open Pull Request.
+## Roadmap / TODO
 
----
+- Keep this README aligned with future code changes.
+- Add setup notes for deployment environments when they are finalized.
+- Add or expand automated tests when project behavior is stable.
 
-## 📜 License | الترخيص
-MIT License © Imed Kablavi
+## Author
 
----
-
-## 💰 Support | الدعم
-يمكنك دعم المشروع هنا: [BuyMeACoffee](https://buymeacoffee.com/imed_kablavi)
-
----
+Author: iEmmAd / cybrex  
+GitHub: [imedkablavi](https://github.com/imedkablavi)
