@@ -1,122 +1,210 @@
-# 🎬 MediaGrabber | ميديا جرايبر
+# 🎬 MediaGrabber
 
-[![Python](https://img.shields.io/badge/Python-3.12-blue?style=for-the-badge&logo=python)](https://www.python.org/)
-[![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi)](https://fastapi.tiangolo.com/)
+[![Python](https://img.shields.io/badge/Python-3.12-blue?style=for-the-badge\&logo=python)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge\&logo=fastapi)](https://fastapi.tiangolo.com/)
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
-[![Support](https://img.shields.io/badge/Support-BuyMeACoffee-orange?style=for-the-badge)](https://www.buymeacoffee.com/)
+[![Support](https://img.shields.io/badge/Support-BuyMeACoffee-orange?style=for-the-badge)](https://buymeacoffee.com/imed_kablavi)
 
-**MediaGrabber** — Multi‑language Media Downloader & Manager  
-Inspect • Download • Convert • فحص • تحميل • تحويل
-
----
-
-## 🌟 Features | المميزات
-
-| Feature / الميزة | Description / الوصف |
-|------------------|----------------------|
-| ⚡ Fast & Reliable | FastAPI + Uvicorn / سريع وموثوق |
-| 📥 Direct Download | `yt-dlp` + FFmpeg merge / تحميل مباشر |
-| 🎵 MP3 Conversion | Optional / تحويل اختياري إلى MP3 |
-| 🔎 Media Inspection | Extract formats & qualities / فحص الصيغ والجودات |
-| 🌍 Multi-language | Arabic (RTL), English, Turkish / تعدد اللغات |
-| 🧭 SEO Optimized | canonical, hreflang, OG, Twitter / تحسين SEO |
-| 🤖 Robots & Sitemap | Served from backend / تقديم عبر الخادم |
-| 🛡️ Cache & Security | Static cache headers, HSTS, custom 404 / أمان وكاش |
+**MediaGrabber** — A multilingual media downloader and manager.
+Inspect • Download • Convert
 
 ---
 
-## 📂 Project Structure | هيكل المشروع
+## 🌟 Features
 
-```
+| Feature              | Description                                                 |
+| -------------------- | ----------------------------------------------------------- |
+| ⚡ Fast & Reliable    | Built with FastAPI and Uvicorn                              |
+| 📥 Direct Download   | Download supported media using `yt-dlp`                     |
+| 🎵 MP3 Conversion    | Optional audio conversion with FFmpeg                       |
+| 🔎 Media Inspection  | Extract available formats, qualities, and media details     |
+| 🌍 Multi-language    | Arabic, English, and Turkish interface support              |
+| ↔️ RTL Support       | Proper right-to-left layout support for Arabic              |
+| 🧭 SEO Ready         | canonical, hreflang, Open Graph, and Twitter metadata       |
+| 🤖 Robots & Sitemap  | `robots.txt` and `sitemap.xml` served from the backend      |
+| 🛡️ Cache & Security | Static cache headers, HSTS support, and custom 404 handling |
+
+---
+
+## 📂 Project Structure
+
+```text
 server/
-└─ main.py                  # FastAPI: static, API, SEO routes
+└─ main.py                  # FastAPI app, static files, API routes, SEO routes
+
 static/
 ├─ index.html               # Main frontend
-├─ css/style.css            # Styles & layout
-├─ js/app.js                # Init & language management
+├─ css/style.css            # Styles and layout
+├─ js/app.js                # App initialization and language handling
 ├─ i18n/{ar,en,tr}.json     # UI translations
-├─ assets/logo.svg          # Logo
-├─ pages/{about,privacy,terms,contact}.html
+├─ assets/logo.svg          # Project logo
+├─ pages/
+│  ├─ about.html            # About page
+│  ├─ privacy.html          # Privacy policy
+│  ├─ terms.html            # Terms page
+│  └─ contact.html          # Contact page
 ├─ manifest.json            # PWA manifest
-robots.txt, sitemap.xml     # SEO files
+├─ robots.txt               # Robots file
+└─ sitemap.xml              # Sitemap file
 ```
 
 ---
 
-## 🚀 Live Demo | العرض الحي
-- Production / الإنتاج: https://mediagrabber.imedkablavi.info/
-- Local / محليًا: http://127.0.0.1:5051/
+## 🚀 Live Demo
 
-<!-- يمكنك إضافة GIF أو لقطات شاشة في هذا القسم لاحقًا عند الحاجة -->
+* Production: https://mediagrabber.imedkablavi.info/
+* Local: http://127.0.0.1:5051/
 
----
-
-## 🌍 Internationalization | التعدد اللغوي
-- Auto‑detects browser language with RTL support for Arabic.
-- Add/update languages via JSON files in `static/i18n/`.
+<!-- Add screenshots or a demo GIF here when available. -->
 
 ---
 
-## 🛠️ Local Development | التطوير محليًا
+## 🌍 Internationalization
+
+MediaGrabber supports multiple interface languages through JSON translation files.
+
+* Browser language detection
+* Arabic RTL layout support
+* Easy translation updates through `static/i18n/`
+* Current languages: Arabic, English, Turkish
+
+To add or update a language, edit or create a JSON file inside:
+
+```text
+static/i18n/
+```
+
+---
+
+## 🛠️ Local Development
+
+Create and activate a virtual environment:
 
 ```bash
 python -m venv venv
-# Windows
-.\venv\Scripts\activate
-# Linux/macOS
-source venv/bin/activate
+```
 
+Windows:
+
+```bash
+.\venv\Scripts\activate
+```
+
+Linux / macOS:
+
+```bash
+source venv/bin/activate
+```
+
+Install dependencies:
+
+```bash
 pip install -r requirements.txt
+```
+
+Run the development server:
+
+```bash
 python -m uvicorn server.main:app --host 127.0.0.1 --port 5051 --workers 4
-# Open http://127.0.0.1:5051/
+```
+
+Open the app:
+
+```text
+http://127.0.0.1:5051/
 ```
 
 ---
 
-## 🧪 API Overview | نقاط نهاية API
-- `POST /api/inspect` — Inspect media / فحص الرابط وإرجاع الصيغ والجودات
-- `POST /api/download` — Download media / تنزيل الصيغة المحددة (يدعم تحويل MP3)
-- `GET /robots.txt`, `GET /sitemap.xml` — SEO files / تقديم ملفات SEO
-- `GET /health` — Health check / فحص صحة التطبيق
+## 🧪 API Overview
+
+| Method | Endpoint        | Description                                      |
+| ------ | --------------- | ------------------------------------------------ |
+| `POST` | `/api/inspect`  | Inspect a media URL and return available formats |
+| `POST` | `/api/download` | Download selected media format                   |
+| `GET`  | `/robots.txt`   | Serve robots file                                |
+| `GET`  | `/sitemap.xml`  | Serve sitemap file                               |
+| `GET`  | `/health`       | Basic health check                               |
 
 ---
 
-## 🔐 YouTube Cookies | ملفات كوكيز يوتيوب (اختياري)
-بعض الروابط تتطلب مصادقة YouTube. صدّر الكوكيز بصيغة Netscape وحدّد المسار في `YTDLP_COOKIEFILE`.
+## 🔐 YouTube Cookies
+
+Some YouTube links may require cookies for access.
+Export cookies in Netscape format and set the cookie file path using `YTDLP_COOKIEFILE`.
+
+Example `.env` value:
 
 ```env
-# .env (see .env.example)
 YTDLP_COOKIEFILE=C:\\absolute\\path\\to\\cookies\\youtube.txt
 ```
 
-مراجع:
-- https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp
+Reference:
+
+```text
+https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp
+```
 
 ---
 
-## 🚀 Deployment | النشر
-تشغيل مباشر عبر Uvicorn أو خلف بروكسي (OpenLiteSpeed/aaPanel).
+## 🚀 Deployment
+
+MediaGrabber can run directly with Uvicorn or behind a reverse proxy such as OpenLiteSpeed, Nginx, Apache, or aaPanel.
+
+Example production command:
 
 ```bash
 uvicorn server.main:app --host 127.0.0.1 --port 5050 --workers 1
 ```
 
-- فعّل HTTPS وإعادة التوجيه من HTTP → HTTPS، ويفضل HTTP/2.
+Recommended production setup:
+
+* Enable HTTPS
+* Redirect HTTP to HTTPS
+* Use HTTP/2 when available
+* Keep `.env` values private
+* Run the app behind a reverse proxy
+* Use a process manager such as `systemd`, `supervisor`, or similar
 
 ---
 
-## 🤝 Contributing | المساهمة
-حسّن الواجهة، أضف ترجمات جديدة، أو نقاط نهاية API.
-Fork → Develop → Open Pull Request.
+## ⚠️ Usage Notice
+
+MediaGrabber is intended for personal, educational, and lawful use only.
+Make sure you have the right to download or process any media you use with this project.
 
 ---
 
-## 📜 License | الترخيص
+## 🤝 Contributing
+
+Contributions are welcome.
+
+You can help by:
+
+* Improving the interface
+* Adding new translations
+* Fixing bugs
+* Improving API behavior
+* Updating documentation
+
+Basic workflow:
+
+```text
+Fork → Create Branch → Make Changes → Open Pull Request
+```
+
+---
+
+## 📜 License
+
 MIT License © Imed Kablavi
 
 ---
 
-## 💰 Support | الدعم
-يمكنك دعم المشروع هنا: [BuyMeACoffee](https://buymeacoffee.com/imed_kablavi)
+## 💰 Support
+
+If you like this project, you can support it here:
+
+[BuyMeACoffee](https://buymeacoffee.com/imed_kablavi)
 
 ---
